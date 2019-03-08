@@ -10,7 +10,7 @@ public class p1068分数线划定 {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
-        int a[] = new int[n+1];//存储编号
+        int a[] = new int[n+1];//存储编号  +1是为了防止数组下标会越界，在最后判重的时候会用到。
         int b[] = new int[n+1];//存储分数
         int p = (int)(m*1.5);
         for (int i = 0; i <n ; i++) {
