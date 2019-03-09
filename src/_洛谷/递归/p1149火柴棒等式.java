@@ -12,6 +12,7 @@ public class p1149火柴棒等式 {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt()-4;//减去加号和等号的火柴棍
         //前面这里的上界枚举出现了错误,错误的将范围缩小了，以后记住，首先跑大范围的数值，然后再逐步缩小范围来确实大概取值范围。
+        //限定结果是当这个题提供的数据量并不是很大的时候。
         for (int i = 0; i <1111 ; i++) {
             for (int j = 0; j <1111 ; j++) {
                 if( check(i,j,i+j)){
