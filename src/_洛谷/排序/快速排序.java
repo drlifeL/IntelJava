@@ -1,10 +1,16 @@
 package _洛谷.排序;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class 快速排序 {
     public static void main(String[] args) {
-        int arr [] = new int[]{5,1,6,7,2,1,5,9,45,46,46,71,35};
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr [] = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
         sort(0,arr.length-1,arr);
         System.out.println(Arrays.toString(arr));
     }
