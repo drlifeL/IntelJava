@@ -1,5 +1,7 @@
 package _蓝桥._2016;
 
+import java.util.Arrays;
+
 /**
  * 全排列模块
  */
@@ -7,10 +9,11 @@ public class _搭积木 {
     static int a[] = {0,1,2,3,4,5,6,7,8,9};
 
     private static int ans =0;
-
+    static int l = 0;
     public static void main(String[] args) {
         f(0);
         System.out.println(ans);
+        System.out.println(l);
     }
 
     /**
@@ -18,6 +21,7 @@ public class _搭积木 {
      * @param k
      */
     private static void f(int k) {
+        l++;
         if(k==10){
             if(check()){
                 ans++;

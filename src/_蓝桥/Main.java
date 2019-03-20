@@ -23,9 +23,12 @@ public class Main {
         char []a = s.toCharArray();
         f(a,0,a.length);
          */
-        System.out.println(new BigDecimal(5.55).toString());
-        System.out.println(new BigDecimal(5.55).toPlainString());
-
+//        System.out.println(new BigDecimal(5.55).toString());
+//        System.out.println(new BigDecimal(5.55).toPlainString());
+//        System.out.println(Math.abs(5-6));
+//        System.out.println(Math.abs(6-5));
+        System.out.println('A'^32);//直接可以使用大小写转换
+        System.out.println('a'^32);
 
     }
 
