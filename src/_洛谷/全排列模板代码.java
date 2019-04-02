@@ -1,7 +1,8 @@
 package _洛谷;
 
-import java.util.Arrays;
-
+/**
+ * 全排列的对于无重复元素的交换法
+ */
 public class 全排列模板代码 {
     static int ans = 0;
     public static void main(String[] args) {

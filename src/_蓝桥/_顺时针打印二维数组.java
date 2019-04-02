@@ -1,5 +1,6 @@
 package _蓝桥;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -15,8 +16,11 @@ public class _顺时针打印二维数组 {
 //        int n =sc.nextInt();
 //        int m =sc.nextInt();
 //        init(n,m);
-        printf(4,4);
+//        printf(4,4);
+        System.out.println(Arrays.deepToString(a));
+
     }
+
 
     private static void printf(int n, int m) {
         int i ,j;

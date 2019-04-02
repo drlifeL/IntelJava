@@ -29,6 +29,10 @@ public class Main {
 //        System.out.println(Math.abs(6-5));
         System.out.println('A'^32);//直接可以使用大小写转换
         System.out.println('a'^32);
+        String s = "a";
+        String s1  = "a";
+        System.out.println(s1.compareTo(s));
+
 
     }
 
