@@ -4,6 +4,17 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class _学霸的迷宫 {
+    private static class Node{
+        int i;
+        int j;
+        int val;
+
+        public Node(int i, int j, int val) {
+            this.i = i;
+            this.j = j;
+            this.val = val;
+        }
+    }
     static int n;
     static int m;
     static char graph[][];
@@ -31,7 +42,7 @@ public class _学霸的迷宫 {
 
                 int nx = i + x[k], ny = j + y[k];
 
-                if (nx >= 0 && nx < n && ny >= 0 && ny < m && graph[nx][ny] == '2') {
+                if (nx >= 0 && nx < n && ny >= 0 && ny < m && graph[nx][ny] == '1') {
                     if(res[nx][ny] == 1 +res[i][j]){
                         i = nx;
                         j = ny;
@@ -42,11 +53,9 @@ public class _学霸的迷宫 {
                 }
             }
         }
+
         System.out.println(res[n-1][m-1]);
         System.out.println(ans);
-
-
-
     }
 
     /**
@@ -55,57 +64,24 @@ public class _学霸的迷宫 {
     private static void bfs() {
         Queue<Node> queue = new LinkedList<Node>();
         queue.add(new Node(0, 0, 0));
-        graph[0][0] = '2';
+        graph[0][0] = '1';
         while (!queue.isEmpty()) {
             Node out = queue.poll();
             for (int i = 0; i < 4; i++) {
                 int ox = out.i ,oy = out.j,ov = out.val;
-
                 if (check(ox+ x[i], oy+ y[i])) {
                     queue.add(new Node(ox + x[i], oy + y[i], ov + 1));
                     res[ox+ x[i]][oy + y[i]] = ov + 1;//保存结果
                 }
             }
-/*
-            这个代码完全可以精简成上面的循环模式
-            if (check(out.i + 1, out.j)) {
-                queue.add(new Node(out.i + 1, out.j, out.val + 1));
-                res[out.i + 1][out.j] = out.val + 1;
-            }
-            if (check(out.i - 1, out.j)) {
-                queue.add(new Node(out.i - 1, out.j, out.val + 1));
-                res[out.i - 1][out.j] = out.val + 1;
-            }
-            if (check(out.i, out.j + 1)) {
-                queue.add(new Node(out.i, out.j + 1, out.val + 1));
-                res[out.i][out.j + 1] = out.val + 1;
-            }
-            if (check(out.i, out.j - 1)) {
-                queue.add(new Node(out.i, out.j - 1, out.val + 1));
-                res[out.i][out.j - 1] = out.val + 1;
-            }*/
         }
-
-
     }
 
     private static boolean check(int i, int j) {
-        if (i < 0 || i >= n || j < 0 || j >= n || graph[i][j] == '2' || graph[i][j]=='1') {
+        if (i < 0 || i >= n || j < 0 || j >= n || graph[i][j] == '1') {
             return false;
         }
-        graph[i][j] = '2';
+        graph[i][j] = '1';
         return true;
-    }
-}
-
-class Node {
-    int i;
-    int j;
-    int val;
-
-    public Node(int i, int j, int val) {
-        this.i = i;
-        this.j = j;
-        this.val = val;
     }
 }
