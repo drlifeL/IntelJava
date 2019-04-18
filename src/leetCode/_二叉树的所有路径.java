@@ -1,7 +1,6 @@
 package leetCode;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class _二叉树的所有路径 {
@@ -16,7 +15,7 @@ public class _二叉树的所有路径 {
     }
 
     static List<String> list = new ArrayList<>();
-
+    static List<List<Integer>> list1 = new ArrayList<List<Integer>>();
     public static void main(String[] args) {
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(4);
@@ -30,14 +29,15 @@ public class _二叉树的所有路径 {
         root.right.right.right = new TreeNode(1);
 
 
-//
-//        dfs(root, "");
-//
-//        System.out.println(list);
+
+        dfs(root, "");
+        System.out.println(list);
         System.out.println(pathSum(root, 22));
+
     }
 
-    static List<List<Integer>> list1 = new ArrayList<List<Integer>>();
+
+
 
     public static List<List<Integer>> pathSum(TreeNode root, int sum) {
 
@@ -45,21 +45,50 @@ public class _二叉树的所有路径 {
         return list1;
     }
 
-    public static void dfs(TreeNode root, int sum, List<Integer> zz, int curSum) {
+    public static void dfs(TreeNode root, int sum, String path, int curSum) {
+
+        /*
+        自己写的代码，太多没有必要的操作了
+         */
+
+        if (root.left == null && root.right == null && curSum + root.val == sum) {
+            path += root.val;
+            List<Integer> ans = new ArrayList<>();
+            String[] t = path.split(",");
+            for (int i = 0; i < t.length; i++) {
+                ans.add(Integer.parseInt(t[i]));
+            }
+            list1.add(ans);
+            return;
+        }
+        path += root.val + ",";
         curSum += root.val;
-        zz.add(root.val);
-        if (curSum > sum) return;
-        if (root.left == null && root.right == null && curSum == sum) {
-            list1.add(zz);
+        if (curSum > sum) {
             return;
         }
         if (root.left != null) {
-            dfs(root.left, sum, zz, curSum);
+            dfs(root.left, sum, path, curSum);
         }
         if (root.right != null) {
-            dfs(root.right, sum, zz, curSum);
+            dfs(root.right, sum, path, curSum);
+        }
+    }
+
+    public static void dfs(_二叉树的所有路径.TreeNode root, int sum, List<Integer> curList, int curSum) {
+        if(root==null){
+            return;
         }
 
+        curSum+=root.val;
+
+        curList.add(root.val);
+
+        if(curSum==sum && root.left==null && root.right==null){
+            list1.add(curList);
+        }
+        dfs(root.left,sum,new ArrayList<>(curList),curSum);//必须创建一个新的对象传递过去
+
+        dfs(root.right,sum,new ArrayList<>(curList),curSum);
     }
 
 
