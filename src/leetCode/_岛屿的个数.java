@@ -1,5 +1,8 @@
 package leetCode;
 
+/**
+ *
+ */
 public class _岛屿的个数 {
     public static void main(String[] args) {
         char arr[][] = {{'1','1','1','1','0'}
@@ -41,5 +44,10 @@ public class _岛屿的个数 {
         dfs(i+1,j,grid);
         dfs(i,j-1,grid);
         dfs(i,j+1,grid);
+    }
+    public static void bfs(int i,int j,char[][]grid){
+
+
+
     }
 }
