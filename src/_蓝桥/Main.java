@@ -33,6 +33,8 @@ public class Main {
         String s1  = "a";
         System.out.println(s1.compareTo(s));
 
+        StringBuilder sb = new StringBuilder("COMPUTER");
+        System.out.println(sb.reverse().toString());
 
     }
 
